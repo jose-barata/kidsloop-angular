@@ -1,1 +1,95 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'sass:map';
+@import './app/variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    border-radius: 12px;
+    font-family: 'Roboto';
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+ta-l {
+    text-align: left;
+}
+
+.ai-c {
+    align-items: center;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+
+.mt-12 {
+    margin-bottom: 12px;
+}
+
+.mb-12 {
+    margin-bottom: 12px;
+}
+
+.ml-12 {
+    margin-left: 12px;
+}
+
+.mr-12 {
+    margin-right: 12px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.theme-light {
+    background-color: map.get($theme, light, 'background');
+    i,
+    span,
+    a {
+        color: map.get($theme, light, primary);
+        &:hover {
+            color: map.get($theme, light, 'secondary');
+        }
+    }
+    input {
+        border-color: map.get($theme, light, inputBorder);
+    }
+}
+
+.theme-dark {
+    background-color: map.get($theme, dark, 'background');
+    i,
+    span,
+    a {
+        color: map.get($theme, dark, primary);
+        &:hover {
+            color: map.get($theme, 'dark', 'secondary');
+        }
+    }
+    input {
+        border-color: map.get($theme, dark, inputBorder);
+    }
+}

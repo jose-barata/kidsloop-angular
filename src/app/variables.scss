@@ -1,0 +1,46 @@
+$theme: (
+    light: (
+        text: #000,
+        background: #f5f5f5,
+        card: #fafafa,
+        primary: #3379ce,
+        secondary: #17377b,
+        labelText:
+            rgba(
+                $color: #000,
+                $alpha: 0.5,
+            ),
+        inputBorder:
+            rgba(
+                $color: #000,
+                $alpha: 0.5,
+            ),
+        cardDropShadow:
+            rgba(
+                $color: #000,
+                $alpha: 0.1,
+            ),
+    ),
+    dark: (
+        text: #fff,
+        background: #272727,
+        card: #212121,
+        primary: #3379ce,
+        secondary: #77b0f4,
+        labelText:
+            rgba(
+                $color: #fff,
+                $alpha: 0.5,
+            ),
+        inputBorder:
+            rgba(
+                $color: #fff,
+                $alpha: 0.5,
+            ),
+        cardDropShadow:
+            rgba(
+                $color: #fff,
+                $alpha: 0.1,
+            ),
+    ),
+);

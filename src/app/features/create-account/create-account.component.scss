@@ -1,0 +1,51 @@
+@use 'sass:map';
+@import '../../variables.scss';
+
+:host {
+    display: grid;
+    grid-template-columns: 1fr 320px 1fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+}
+
+.create-account-page {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.create-account-card {
+    img {
+        width: 100px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    input {
+        height: 3em;
+        text-indent: 10px;
+        &.invalid {
+            border-color: red;
+        }
+    }
+}
+
+.row {
+    a {
+        &:first-of-type {
+            margin-right: 12px;
+        }
+        &:last-of-type {
+            margin-left: 12px;
+        }
+    }
+}
+
+.invalid-feedback {
+    margin-top: -8px;
+    margin-bottom: 12px;
+    color: red;
+}

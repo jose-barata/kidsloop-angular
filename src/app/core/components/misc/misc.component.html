@@ -1,0 +1,25 @@
+<div class="row jc-sb">
+    <div class="row">
+        <i
+            class="bi bi-brightness-high-fill mr-12"
+            (click)="onChangeTheme(themes.LIGHT)"
+            *ngIf="theme === themes.DARK"
+        ></i>
+        <i class="bi bi-moon-fill mr-12" (click)="onChangeTheme(themes.DARK)" *ngIf="theme === themes.LIGHT"></i>
+        <app-menu>
+            <ul>
+                <li (click)="onChangeLanguage('en')">English</li>
+                <li (click)="onChangeLanguage('pt')">Portuguese</li>
+            </ul>
+        </app-menu>
+    </div>
+    <div class="row">
+        <a href="https://www.kidsloop.net/contact-us/" target="_blank" rel="noopener noreferrer" class="mr-12">Help</a>
+        <a href="https://www.kidsloop.net/policies/privacy-notice/" target="_blank" rel="noopener noreferrer"
+            >Privacy</a
+        >
+        <a href="https://www.kidsloop.net/policies/terms/" target="_blank" rel="noopener noreferrer" class="ml-12"
+            >Terms of Use</a
+        >
+    </div>
+</div>

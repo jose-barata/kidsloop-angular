@@ -1,0 +1,7 @@
+<div class="app-menu">
+    <span (click)="toggleMenu()"> Select Language </span>
+
+    <div class="dropdown" role="menu" [@openClose]="isOpen ? 'enter' : 'hidden'">
+        <ng-content></ng-content>
+    </div>
+</div>

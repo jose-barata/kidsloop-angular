@@ -1,0 +1,79 @@
+<div class="create-account-page">
+    <app-card class="create-account-card">
+        <div class="ta-l">
+            <img src="assets/kidsloop_min_logo.svg" alt="" class="mb-12" />
+        </div>
+
+        <h2 class="mb-12">Create Account</h2>
+
+        <form [formGroup]="form">
+            <div class="column">
+                <input
+                    type="email"
+                    formControlName="email"
+                    class="mb-12"
+                    placeholder="Email or Phone"
+                    aria-describedby="emailFeedback"
+                    [ngClass]="{ invalid: form.controls.email.errors }"
+                />
+                <div id="emailFeedback" class="invalid-feedback" *ngIf="form.controls.email.errors">
+                    <ng-container *ngFor="let error of form.controls.email.errors | keyvalue">
+                        {{
+                            error.key === 'required'
+                                ? 'This field is required'
+                                : error.key === 'pattern'
+                                ? 'Email needs to be valid'
+                                : ''
+                        }}
+                    </ng-container>
+                </div>
+                <input
+                    type="password"
+                    formControlName="password"
+                    class="mb-12"
+                    placeholder="Password"
+                    aria-describedby="passwordFeedback"
+                    [ngClass]="{ invalid: form.controls.password.errors }"
+                />
+                <div id="passwordFeedback" class="invalid-feedback" *ngIf="form.controls.password.errors">
+                    <ng-container *ngFor="let error of form.controls.password.errors | keyvalue">
+                        {{
+                            error.key === 'required'
+                                ? 'This field is required'
+                                : error.key === 'minlength'
+                                ? 'Min. 6 characters'
+                                : ''
+                        }}
+                    </ng-container>
+                </div>
+                <input
+                    type="password"
+                    formControlName="confirmPassword"
+                    class="mb-12"
+                    placeholder="Confirm Password"
+                    aria-describedby="confirmPasswordFeedback"
+                    [ngClass]="{ invalid: form.controls.confirmPassword.errors }"
+                />
+                <div id="confirmPasswordFeedback" class="invalid-feedback" *ngIf="form.controls.confirmPassword.errors">
+                    <ng-container *ngFor="let error of form.controls.confirmPassword.errors | keyvalue">
+                        {{
+                            error.key === 'required'
+                                ? 'This field is required'
+                                : error.key === 'minlength'
+                                ? 'Min. 6 characters.'
+                                : error.key === 'noMatch'
+                                ? 'Passwords need to match'
+                                : ''
+                        }}
+                    </ng-container>
+                </div>
+            </div>
+        </form>
+
+        <div class="row mb-12 jc-sb ai-c">
+            <a [routerLink]="['/']">Back</a>
+            <button app-button (click)="onCreateAccount()">Create Account</button>
+        </div>
+    </app-card>
+    <app-misc></app-misc>
+</div>

@@ -1,0 +1,66 @@
+<div class="sign-in-page" *ngIf="!this.loading; else isloading">
+    <app-card class="sign-in-card">
+        <div class="ta-l">
+            <img src="assets/kidsloop_min_logo.svg" alt="" class="mb-12" />
+        </div>
+
+        <h1 class="mb-12">{{ 'SIGN_IN' | translate }}</h1>
+
+        <form [formGroup]="form">
+            <div class="column">
+                <input
+                    type="email"
+                    formControlName="email"
+                    class="mb-12"
+                    [placeholder]="'EMAIL_PLACEHOLDER' | translate"
+                    aria-describedby="emailFeedback"
+                    [ngClass]="{ invalid: form.controls.email.errors }"
+                />
+                <div id="emailFeedback" class="invalid-feedback" *ngIf="form.controls.email.errors">
+                    <ng-container *ngFor="let error of form.controls.email.errors | keyvalue">
+                        {{
+                            error.key === 'required'
+                                ? 'This field is required'
+                                : error.key === 'pattern'
+                                ? 'Email needs to be valid'
+                                : ''
+                        }}
+                    </ng-container>
+                </div>
+                <input
+                    type="password"
+                    formControlName="password"
+                    class="mb-12"
+                    placeholder="Password"
+                    aria-describedby="passwordFeedback"
+                    [ngClass]="{ invalid: form.controls.password.errors }"
+                />
+                <div id="passwordFeedback" class="invalid-feedback" *ngIf="form.controls.password.errors">
+                    <ng-container *ngFor="let error of form.controls.password.errors | keyvalue">
+                        {{
+                            error.key === 'required'
+                                ? 'This field is required'
+                                : error.key === 'minlength'
+                                ? 'Min. 6 characters'
+                                : ''
+                        }}
+                    </ng-container>
+                </div>
+            </div>
+        </form>
+
+        <div class="row mb-12 jc-sb ai-c">
+            <a [routerLink]="['/', 'reset-password']">{{ 'FORGOT_PASSWORD' | translate }}</a>
+            <button app-button (click)="onSignIn()">
+                {{ 'SIGN_IN' | translate }}
+            </button>
+        </div>
+
+        <div class="row">
+            <a [routerLink]="['/', 'create-account']"> {{ 'CREATE_ACCOUNT' | translate }}</a>
+        </div>
+    </app-card>
+    <app-misc></app-misc>
+</div>
+
+<ng-template #isloading> <div class="loader"></div></ng-template>

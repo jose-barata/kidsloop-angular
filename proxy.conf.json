@@ -1,0 +1,20 @@
+{
+    "/kidsloop-test/accounts/sign-in": {
+        "target": "https://my-json-server.typicode.com",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    "/kidsloop-test/accounts/sign-up": {
+        "target": "https://my-json-server.typicode.com",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    "/kidsloop-test/accounts/reset-password": {
+        "target": "https://my-json-server.typicode.com",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}

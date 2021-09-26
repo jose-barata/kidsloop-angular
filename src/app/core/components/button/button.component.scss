@@ -1,0 +1,27 @@
+@use 'sass:map';
+@import '../../../variables.scss';
+
+.app-button {
+    border: none;
+    padding: 1em;
+    height: 100%;
+    cursor: pointer;
+}
+
+@mixin button($type) {
+    .app-button {
+        background-color: map.get($theme, $type, 'primary');
+        color: map.get($theme, 'dark', 'text');
+        &:hover {
+            background-color: map.get($theme, $type, 'secondary');
+        }
+    }
+}
+
+.theme-light {
+    @include button('light');
+}
+
+.theme-dark {
+    @include button('dark');
+}

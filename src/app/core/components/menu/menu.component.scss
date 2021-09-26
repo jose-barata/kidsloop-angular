@@ -1,0 +1,47 @@
+@use 'sass:map';
+@import '../../../variables.scss';
+
+.app-menu {
+    position: relative;
+
+    span {
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        right: 0em;
+        top: 2em;
+        z-index: 500;
+        transform-origin: 100% 0%;
+
+        li {
+            cursor: pointer;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+    }
+}
+
+@mixin menu($type) {
+    .app-menu {
+        color: map.get($theme, $type, 'primary');
+        ul {
+            border: 1px solid rgba($color: map.get($theme, $type, 'primary'), $alpha: 0.2);
+        }
+        li:hover {
+            background-color: rgba($color: map.get($theme, $type, 'primary'), $alpha: 0.1);
+        }
+    }
+}
+
+.theme-light {
+    @include menu('light');
+}
+
+.theme-dark {
+    @include menu('dark');
+}
